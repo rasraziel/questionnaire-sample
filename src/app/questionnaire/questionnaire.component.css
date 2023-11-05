@@ -143,3 +143,68 @@ textarea {
 .question-text {
   font-weight: bold;
 }
+
+img.image-logo {
+  display: none;
+}
+
+/* Mobile styles using media queries */
+@media (max-width: 768px) {
+
+  img.image-logo {
+    display: block;
+    padding-left: 4rem;
+  }
+
+  .question .radio-options {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .questionnaire-container {
+    padding: 10px;
+    /* Reduce padding for smaller screens */
+  }
+
+  .questionnaire-header {
+    font-size: 24px;
+    /* Decrease font size for smaller screens */
+    margin-bottom: 15px;
+  }
+
+  .question {
+    margin-bottom: 20px;
+  }
+
+  .radio-options label {
+    margin-bottom: 5px;
+    /* Reduce margin for smaller screens */
+  }
+
+  .radio-options input[type="radio"] {
+    margin-right: 5px;
+    /* Reduce margin for smaller screens */
+  }
+
+  input[type="text"],
+  textarea {
+    width: 80%;
+    padding: 10px;
+    /* Adjust padding for smaller screens */
+  }
+
+  button[type="submit"] {
+    padding: 10px 20px;
+    /* Adjust padding for smaller screens */
+  }
+
+  textarea {
+    width: 80%;
+    height: 100px;
+    /* Reduce textarea height for smaller screens */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+  }
+}
