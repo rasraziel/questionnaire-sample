@@ -1,5 +1,8 @@
 <div class="questionnaire-container">
   <h2 class="questionnaire-header">Chaos Theory and Applications Questionnaire</h2>
+  <p>This anonymous questionnaire is intended to be taken by the students who completed the Chaos Theory and Applications module
+    of the University of American Samoa.
+    Please submit this questionnaire by December 31st 2023.</p>
   <form (ngSubmit)="submitForm()" #questionnaireForm="ngForm">
     <ng-container *ngFor="let question of questions; let i = index">
       <div class="question">
@@ -15,7 +18,6 @@
           <textarea name="question{{ i }}" [(ngModel)]="questionnaireResponses[i]"
             required={{question.required}}></textarea>
         </div>
-        <!-- Display error message if the field is required and not filled -->
         <div *ngIf="submitted && questionnaireForm.controls['question'+i].hasError('required')" class="error-message">
           <span class="error-icon">!</span> This field is required.
         </div>
@@ -23,5 +25,6 @@
       <hr class="question-separator" *ngIf="i !== questions.length - 1" />
     </ng-container>
     <button type="submit">Submit</button>
+    <p *ngIf="completed">Thank you for submitting!</p>
   </form>
 </div>

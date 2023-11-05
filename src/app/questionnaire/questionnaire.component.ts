@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Import Validators and FormBuilder
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -29,9 +29,19 @@ export class QuestionnaireComponent {
   ]
   questionnaireResponses: any[] = [];
   submitted = false;
+  completed = false;
 
   submitForm() {
     this.submitted = true;
-    // You can handle form submission here if needed
+    this.completed = this.questionnaireResponses.length > 0 && !this.hasEmptyCells(this.questionnaireResponses);
+  }
+
+  hasEmptyCells(arr: string | any[]) {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === undefined || arr[i] === null) {
+        return true;
+      }
+    }
+    return false;
   }
 }
